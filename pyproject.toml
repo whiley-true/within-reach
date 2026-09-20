@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "within-reach"
+version = "0.1.0"
+description = "Hot reload and screen capture helpers for working with Halo: Reach and Halo: MCC."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { file = "LICENSE" }
+authors = [{ name = "Whiley True", email = "inreach.python@gmail.com" }]
+dependencies = [
+    "click==8.5.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.4.2"]
+
+[project.scripts]
+within-reach = "within_reach.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
