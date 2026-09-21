@@ -11,7 +11,10 @@ def runner() -> CliRunner:
 
 
 def test_the_package_has_a_version() -> None:
-    assert within_reach.__version__ == "0.1.0"
+    """Any release version: Cut Release rewrites ``__version__`` on the release branch, and this test runs there too."""
+    import re
+
+    assert re.fullmatch(r"\d+\.\d+\.\d+", within_reach.__version__)
 
 
 def test_help_lists_the_commands(runner: CliRunner) -> None:
